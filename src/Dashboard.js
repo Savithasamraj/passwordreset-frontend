@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
-    const [students,setStudents] = useState([])
+    const [Students,setStudents] = useState([])
   let getData = async () => {
    let res= await axios.get("https://paasword-reset.herokuapp.com/dashboard",{
     headers:{
@@ -34,8 +34,8 @@ function Dashboard() {
         }
        });
        console.log(data.config.data)
-    setStudents([...students,data.config.data])
-    console.log(students)
+    setStudents([...Students,data.config.data])
+    console.log(Students)
       alert(data.data.message);
       getData();
     },
@@ -96,7 +96,7 @@ function Dashboard() {
                 </tr>
               </thead>
               <tbody>
-                {students.map((student) => {
+                {Students.map((student) => {
                   return (
                     <tr>
                       <th scope="row">{student._id}</th>
