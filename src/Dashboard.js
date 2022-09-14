@@ -13,7 +13,7 @@ function Dashboard() {
     }
    });
     setStudents(res.data)
-    console.log(students)
+    console.log(res.data)
    
   };
   useEffect(() => {
