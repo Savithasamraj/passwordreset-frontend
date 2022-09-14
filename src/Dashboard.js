@@ -13,7 +13,6 @@ function Dashboard() {
     }
    });
     setStudents(res.data)
-    console.log(res.data)
    
   };
   useEffect(() => {
@@ -36,6 +35,7 @@ function Dashboard() {
        });
        console.log(data.config.data)
     setStudents([...students,data.config.data])
+    console.log(students)
       alert(data.data.message);
       getData();
     },
