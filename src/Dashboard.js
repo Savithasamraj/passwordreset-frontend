@@ -34,7 +34,7 @@ function Dashboard() {
         }
        });
        console.log(data.config.data)
-    setStudents([...Students,data.config.data])
+    setStudents(...Students,data.config.data)
     console.log(Students)
       alert(data.data.message);
       getData();
