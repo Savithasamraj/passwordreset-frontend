@@ -34,7 +34,7 @@ function Dashboard() {
           'Authorization' : `${localStorage.getItem('react_app_token')}`
         }
        });
-       console.log(data)
+       console.log(data.config.data)
     setStudents([...students,data])
       alert(data.data.message);
       getData();
