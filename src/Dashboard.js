@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Dashboard() {
     const [students,setStudents] = useState([])
   let getData = async () => {
-   let res= await axios.get("http://localhost:5002/dashboard",{
+   let res= await axios.get("https://paasword-reset.herokuapp.com/dashboard",{
     headers:{
       'Authorization' : `${localStorage.getItem('react_app_token')}`
     }
@@ -29,7 +29,7 @@ function Dashboard() {
       age: "",
     },
     onSubmit: async (values) => {
-      const data = await axios.post("http://localhost:5002/dashboard", values ,{
+      const data = await axios.post("https://paasword-reset.herokuapp.com/dashboard", values ,{
         headers:{
           'Authorization' : `${localStorage.getItem('react_app_token')}`
         }
