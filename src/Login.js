@@ -12,7 +12,7 @@ function Login() {
     },
     onSubmit: async (values) => {
       try{
-        const login = await axios.post("http://localhost:5002", values);
+        const login = await axios.post("https://paasword-reset.herokuapp.com", values);
         localStorage.setItem("react_app_token", login.data.token);
   
         alert(login.data.message);

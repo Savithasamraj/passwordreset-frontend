@@ -16,7 +16,7 @@ function Register() {
     onSubmit: async (values) => {
 
       try {
-        const register =await axios.post("http://localhost:5002/register", values);
+        const register =await axios.post("https://paasword-reset.herokuapp.com/register", values);
         alert(register.data.message);
         navigate('/')
       } catch (error) {

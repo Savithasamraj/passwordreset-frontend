@@ -13,7 +13,7 @@ function ResetPasswordPage() {
       password: "",
     },
     onSubmit: async (values) => {
-      let user = await axios.post("http://localhost:5002/resetpage", values);
+      let user = await axios.post("https://paasword-reset.herokuapp.com/resetpage", values);
       alert(user.data.message);
       navigate("/");
     },

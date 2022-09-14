@@ -10,7 +10,7 @@ function Resetpassword() {
       email:""
     },
     onSubmit:async (values)=>{
-      const mail= await axios.post("http://localhost:5002/reset",values)
+      const mail= await axios.post("https://paasword-reset.herokuapp.com/reset",values)
       console.log(mail)
       alert(mail.data.message)
     }
