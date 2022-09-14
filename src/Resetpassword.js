@@ -1,8 +1,20 @@
+import axios from 'axios';
+import { useFormik } from 'formik';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Resetpassword() {
    const navigate=useNavigate()
+   const formik=useFormik({
+    initialValues:{
+      email:""
+    },
+    onSubmit:async (values)=>{
+      const mail= await axios.post("http://localhost:5002/reset",values)
+      console.log(mail)
+      alert(mail.data.message)
+    }
+   })
   return (
     <>
     
@@ -12,20 +24,14 @@ function Resetpassword() {
           <div class="forgot">
           	
           	<h2>Forgot your password?</h2>
-          <p>Change your password in three easy steps. This will help you to secure your password!</p>
-          <ol class="list-unstyled">
-            <li><span class="text-primary text-medium">1. </span>Enter your email address below.</li>
-            <li><span class="text-primary text-medium">2. </span>Our system will send you a temporary link</li>
-            <li><span class="text-primary text-medium">3. </span>Use the link to reset your password</li>
-          </ol>
-
+          
           </div>	
           
-          <form class="card mt-4">
+          <form class="card mt-4" onSubmit={formik.handleSubmit}>
             <div class="card-body">
               <div class="form-group">
-                <label for="email-for-pass">Enter your email address</label>
-                <input class="form-control" type="text" id="email-for-pass" required=""/><small class="form-text text-muted">Enter the email address you used during the registration on BBBootstrap.com. Then we'll email a link to this address.</small>
+                <label for="email">Enter your email address</label>
+                <input class="form-control" type="email"name="email" id="email" required="" value={formik.values.email} onChange={formik.handleChange}/><small class="form-text text-muted">Enter the email address you used during the registration on BBBootstrap.com. Then we'll email a link to this address.</small>
               </div>
             </div>
             <div class="card-footer">
